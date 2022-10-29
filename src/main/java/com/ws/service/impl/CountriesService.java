@@ -3,16 +3,19 @@ package com.ws.service.impl;
 import com.ws.model.Countries;
 import com.ws.service.ICountriesService;
 
+import javax.enterprise.context.ApplicationScoped;
 import java.util.List;
 
+@ApplicationScoped
 public class CountriesService implements ICountriesService {
     @Override
     public List<Countries> findAll() {
-        return null;
+        return Countries.listAll();
     }
 
     @Override
     public Countries save(Countries country) {
-        return null;
+        country.persist();
+        return country;
     }
 }

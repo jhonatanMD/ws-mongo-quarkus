@@ -1,6 +1,8 @@
 package com.ws.controller;
 
+import com.ws.model.Countries;
 import com.ws.model.Person;
+import com.ws.service.ICountriesService;
 import com.ws.service.IPersonService;
 import lombok.RequiredArgsConstructor;
 
@@ -13,6 +15,7 @@ import javax.ws.rs.core.Response;
 public class AppController {
 
     private final IPersonService personService;
+    private final ICountriesService countriesService;
 
 
     @GET
@@ -27,5 +30,24 @@ public class AppController {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response savePerson(Person person) {
         return Response.ok(personService.save(person)).build();
+    }
+
+
+
+    @GET()
+    @Path("/countries")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getContries() {
+        return Response.ok(countriesService.findAll()).build();
+    }
+
+
+    @POST
+    @Path("/countries")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response saveCountries(Countries countries) {
+        return Response.ok(countriesService.save(countries)).build();
     }
 }
