@@ -3,6 +3,7 @@ package com.ws.controller;
 import com.ws.model.Countries;
 import com.ws.model.Customer;
 import com.ws.model.Person;
+import com.ws.model.dto.CustomerRequest;
 import com.ws.service.ICountriesService;
 import com.ws.service.ICustomersService;
 import com.ws.service.IPersonService;
@@ -68,7 +69,16 @@ public class AppController {
     @Path("/customer")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response saveCustomer(Customer customer) {
+    public Response saveCustomer(CustomerRequest customer) {
         return Response.ok(customersService.save(customer)).build();
+
+    }
+
+    @GET()
+    @Path("/customer/id/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getCustomer(@PathParam("id") String id) {
+        return Response.ok(customersService.findById(id)).build();
     }
 }

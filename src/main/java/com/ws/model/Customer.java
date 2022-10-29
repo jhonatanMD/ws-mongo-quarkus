@@ -21,5 +21,6 @@ public class Customer {
     private String name;
     @BsonProperty("last_name")
     private String lastName;
+    private Product product;
 
 }

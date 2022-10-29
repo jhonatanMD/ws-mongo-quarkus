@@ -1,10 +1,13 @@
 package com.ws.service;
 
-import com.ws.model.Customer;
+import com.ws.model.dto.CustomerDto;
+import com.ws.model.dto.CustomerRequest;
+import com.ws.model.dto.CustomerResponse;
 
 import java.util.List;
 
 public interface ICustomersService {
-    List<Customer> findAll();
-    Customer save(Customer customer);
+    List<CustomerDto> findAll();
+    CustomerDto save(CustomerRequest customer);
+    CustomerResponse findById(String id);
 }
