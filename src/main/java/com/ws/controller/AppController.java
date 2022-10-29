@@ -1,8 +1,10 @@
 package com.ws.controller;
 
 import com.ws.model.Countries;
+import com.ws.model.Customer;
 import com.ws.model.Person;
 import com.ws.service.ICountriesService;
+import com.ws.service.ICustomersService;
 import com.ws.service.IPersonService;
 import lombok.RequiredArgsConstructor;
 
@@ -16,6 +18,7 @@ public class AppController {
 
     private final IPersonService personService;
     private final ICountriesService countriesService;
+    private final ICustomersService customersService;
 
 
     @GET
@@ -49,5 +52,23 @@ public class AppController {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response saveCountries(Countries countries) {
         return Response.ok(countriesService.save(countries)).build();
+    }
+
+
+    @GET()
+    @Path("/customer")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getCustomer() {
+        return Response.ok(customersService.findAll()).build();
+    }
+
+
+    @POST
+    @Path("/customer")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response saveCustomer(Customer customer) {
+        return Response.ok(customersService.save(customer)).build();
     }
 }
