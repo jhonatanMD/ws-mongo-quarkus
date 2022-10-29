@@ -1,0 +1,7 @@
+
+var:
+  db: prueba1
+  c1: Person
+quarkus:
+  mongodb:
+    connection-string: mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false

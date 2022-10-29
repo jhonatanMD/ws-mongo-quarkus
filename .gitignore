@@ -3,7 +3,12 @@
 
 # Log file
 *.log
-
+.idea
+.mvn
+target
+*.iml
+mvnw.cmd
+mvnw
 # BlueJ files
 *.ctxt
 
