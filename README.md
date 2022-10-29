@@ -1,0 +1,1 @@
+# ws-mongo-quarkus
